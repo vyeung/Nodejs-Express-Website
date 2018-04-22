@@ -9,6 +9,9 @@ app.set("port", process.env.PORT || 3000);
 //doing appData=dataFile so all routes can access
 app.set("appData", dataFile);
 
+//public folder has all our static files. let it be available to all our docs.
+app.use(express.static("./app/public"));
+
 //connect routes
 app.use(require("./routes/mainRoute"));
 app.use(require("./routes/speakersInfo"));
