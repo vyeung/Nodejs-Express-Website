@@ -5,7 +5,12 @@ var router = express.Router();  //create instance of Router object
 router.get("/", function(req, res)
 {
     //render our homepage with index.ejs specified in app.js
-    res.render("index");
+    res.render("index",
+    {
+        //some local variables that are used in index.ejs
+        pageTitle: "Home",
+        pageID: "home"
+    });
 });
 
 //so app.js can use this 

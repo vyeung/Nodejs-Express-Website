@@ -13,6 +13,9 @@ app.set("appData", dataFile);
 app.set("view engine", "ejs");
 app.set("views", "./app/views");
 
+//globabl variable that can be used in all views
+app.locals.siteTitle = "Roux Meetups";
+
 //public folder has all our static files. let it be available to all our docs.
 app.use(express.static("./app/public"));
 
