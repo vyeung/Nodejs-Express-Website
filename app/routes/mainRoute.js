@@ -11,7 +11,7 @@ router.get("/", function(req, res)
     data.speakers.forEach(function(item)
     {
         homepagePhotos = homepagePhotos.concat(item.artwork);
-    })
+    });
 
     //render our homepage with index.ejs specified in app.js
     res.render("index",
