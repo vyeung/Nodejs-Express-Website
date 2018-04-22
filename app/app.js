@@ -9,6 +9,10 @@ app.set("port", process.env.PORT || 3000);
 //doing appData=dataFile so all routes can access
 app.set("appData", dataFile);
 
+//using ejs template engine
+app.set("view engine", "ejs");
+app.set("views", "./app/views");
+
 //public folder has all our static files. let it be available to all our docs.
 app.use(express.static("./app/public"));
 
