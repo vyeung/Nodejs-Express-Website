@@ -25,6 +25,7 @@ app.use(require("./routes/mainRoute"));
 app.use(require("./routes/speakersInfo"));
 app.use(require("./routes/feedbackRoute"));
 app.use(require("./routes/apiRoute"));
+app.use(require("./routes/chatRoute"));
 
 var server = app.listen(app.get("port"), function()
 {
