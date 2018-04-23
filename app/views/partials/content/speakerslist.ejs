@@ -11,12 +11,22 @@
                             <img class="speakerslist-img img-circle" src="/images/speakers/<%= item.shortname %>_tn.jpg" alt="Photo of <%= item.name %>">
                         <% } %>
                         
-                        <% if(pageID == "speakers") { %>
+                        <% if(pageID == "speakerList") { %>
                             <img class="speakerslist-img img-circle pull-left" src="/images/speakers/<%= item.shortname %>_tn.jpg" alt="Photo of <%= item.name %>">
-                        <% } %>      
+                        <% } %>  
+                        
+                        <% if(pageID == "speakerDetail") { %>
+                            <img class="speakerslist-img img-responsive pull-left" src="/images/speakers/<%= item.shortname %>.jpg" alt="Photo of <%= item.name %>">
+                        <% } %>  
                     </a>
+                    <!--show speaker summary or description-->
                     <% if(pageID !== "home") { %>
-                        <%= item.summary %>
+                        <% if(pageID === "speakerList") { %>
+                            <%= item.summary %>
+                        <% } %>
+                        <% if(pageID === "speakerDetail") { %>
+                            <%- item.description %>
+                        <% } %>
                     <% } %>        
                 </p>
                 </div>

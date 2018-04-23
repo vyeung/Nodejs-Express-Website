@@ -21,27 +21,34 @@ router.get("/speakers", function(req, res)
         pageTitle: "Speakers",
         artwork: speakerPhotos,
         speakers: pageSpeakers,
-        pageID: "speakers"
+        pageID: "speakerList"
     });
 });
 
 //individual speaker route. path has a speakerid var that we made. can be 0,1,2
 router.get("/speakers/:speakerid", function(req, res)
 {
-    var dataFile = req.app.get("appData");  //from app.js
+    var data = req.app.get("appData");
+    var speakerPhotos = [];
+    var pageSpeakers = [];
 
-    //how speaker gets its info
-    var speaker = dataFile.speakers[req.params.speakerid];
+    data.speakers.forEach(function(item)
+    {
+        //show info for just our selected artist
+        if(item.shortname === req.params.speakerid) {
+            pageSpeakers.push(item);
+            speakerPhotos = speakerPhotos.concat(item.artwork);
+        }
+    });
 
-    //respond with info about an individual speaker
-    //forward / in front of css and images here is necessary
-    res.send(`
-        <link rel="stylesheet" href="/css/style.css" type="text/css">
-        <h1>${speaker.title}</h1>
-        <h2>with ${speaker.name}</h2>
-        <img src="/images/speakers/${speaker.shortname}_tn.jpg" alt="speaker">
-        <p>${speaker.summary}</p>
-    `);
+    res.render("speakers",
+    {
+        //some local variables that are used in index.ejs
+        pageTitle: "Speakers",
+        artwork: speakerPhotos,
+        speakers: pageSpeakers,
+        pageID: "speakerDetail"
+    });
 });
 
 //so app.js can use this
