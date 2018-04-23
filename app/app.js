@@ -23,6 +23,7 @@ app.use(express.static("./app/public"));
 //connect routes
 app.use(require("./routes/mainRoute"));
 app.use(require("./routes/speakersInfo"));
+app.use(require("./routes/feedbackRoute"));
 
 var server = app.listen(app.get("port"), function()
 {
