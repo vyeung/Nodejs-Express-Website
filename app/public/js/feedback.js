@@ -2,8 +2,9 @@
 $(function() {
   $.getJSON('api', updateFeedback);
 
+  //POST event
   $('.feedback-form').submit(function(e) {
-    e.preventDefault();
+    e.preventDefault(); //prevent page reload once they hit submit
     $.post('api', {
       name: $('#feedback-form-name').val(),
       title: $('#feedback-form-title').val(),
