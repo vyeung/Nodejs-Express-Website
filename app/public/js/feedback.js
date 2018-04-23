@@ -1,3 +1,4 @@
+//jQuery
 $(function() {
   $.getJSON('api', updateFeedback);
 
@@ -20,6 +21,7 @@ $(function() {
       } // the target is a delete button
   }); //feedback messages
 
+  //show feedback under recent feedback section
   function updateFeedback(data) {
    var output = '';
    $.each(data,function(key, item) {
