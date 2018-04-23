@@ -24,6 +24,7 @@ app.use(express.static("./app/public"));
 app.use(require("./routes/mainRoute"));
 app.use(require("./routes/speakersInfo"));
 app.use(require("./routes/feedbackRoute"));
+app.use(require("./routes/apiRoute"));
 
 var server = app.listen(app.get("port"), function()
 {
