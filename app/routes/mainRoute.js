@@ -6,6 +6,7 @@ router.get("/", function(req, res)
 {
     var data = req.app.get("appData");
     var homepagePhotos = [];
+    var pageSpeakers = data.speakers;
 
     //show all artwork on homepage
     data.speakers.forEach(function(item)
@@ -19,6 +20,7 @@ router.get("/", function(req, res)
         //some local variables that are used in index.ejs
         pageTitle: "Home",
         artwork: homepagePhotos,
+        speakers: pageSpeakers,
         pageID: "home"
     });
 });
