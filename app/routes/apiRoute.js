@@ -23,7 +23,24 @@ router.post("/api", function(req, res)
     //save data to the feedback.json file
     fs.writeFile("app/data/feedback.json", JSON.stringify(feedbackData), "UTF-8", function(err)
     {
-        console.log(err);
+        if(err)
+            console.log(err);
+    });
+
+    res.json(feedbackData);
+});
+
+//DELETE data
+router.delete("/api/:id", function(req, res)
+{
+    //remove the 1 targeted element
+    feedbackData.splice(req.params.id, 1);
+    
+    //update the feedback.json file
+    fs.writeFile("app/data/feedback.json", JSON.stringify(feedbackData), "UTF-8", function(err)
+    {
+        if(err)
+            console.log(err);
     });
 
     res.json(feedbackData);
