@@ -10,6 +10,11 @@ $(function() {
       title: $('#feedback-form-title').val(),
       message: $('#feedback-form-message').val()
     }, updateFeedback);
+    
+    //reset fields after submitting
+    $('#feedback-form-name').val("");
+    $('#feedback-form-title').val("");
+    $('#feedback-form-message').val("");
   });
 
   //DELETE event
