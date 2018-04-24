@@ -1,4 +1,4 @@
-### Website
+## Website
 
 How to run
   1) do a npm install 
